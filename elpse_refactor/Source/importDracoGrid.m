@@ -1,17 +1,18 @@
 
  function rayGd = importDracoGrid(dracoFile,iTime,addVarFlag)
+%IMPORTDRACOGRID Imports and processes DRACO data into a rayGd struct
+
+%Convert this Script into a function that returns a struct that
+%holds the downsampled "blocks" i.e., zSblock, rSblock, the grid
+%data, and the delauney triangulation for interpolation
 %
-% Convert this Script into a function that returns a struct that
-% holds the downsampled "blocks" i.e., zSblock, rSblock, the grid
-% data, and the delauney triangulation for interpolation
+%We will return:
 %
-% We will return:
-%
-%   rayGd - struct containing grid and data suitable for
+%rayGd - struct containing grid and data suitable for
 %           interpolation
 %
 %
-%    JFM April 15 (May 13), 2020
+%JFM April 15 (May 13), 2020
 %
 %
    

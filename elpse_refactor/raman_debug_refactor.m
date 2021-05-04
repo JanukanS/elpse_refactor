@@ -5,6 +5,7 @@
  
  
  path(path,'./Plotting')
+ path(path,'./Source/rayBundles')
  path(path,'./Source')
  %path(path,'./Steven_dev')
  
@@ -69,56 +70,32 @@
  % At some point generalize makeRayBundle so that it can launch
  % EPWs (JFM)
  
-
+ %defining laser parameters excluding angle
+ nrays = 20; %number of rays
+ launchFreq = cnst.omega0; %frequency in Hz
+ focalPt = [-400,0]; % center of spherical target, in microns
+ spotType = "SG8"; %NEED CLARIFICATION
+ spotDiam = 700; %spot diameter in microns
+ translate = 5.0e3;   % distance in um from focus to translate so that 
+                      %we are sure to be far enough away to start
+ 
  % Beam 1
- %
- if ~exist('rayBundleB1','var')
-     
-     launchList.type = 'laserBeam';      % trigger for 'makeRayBundle'
-     launchList.mode = 'forward';        % Could be backward also (neg omega?).
-     launchList.nrays = 20;
-     launchList.frequency = cnst.omega0; % 1/sec
-     % center of spherical target
-     launchList.focalPt = [-400,0];      % microns
-     launchList.spot = struct('type','SG8','diameter',700); 
-     angle = 180+(-23.3); % (degrees) is measured from "target norm"
-     launchList.centroid = [cosd(angle),sind(angle)]; % unit vector in
-                                                       % direction of
-                                                       % beam propagation
-                                                       % propagation
-     launchList.translate = 5.0e3;   % distance in um from focus to
-                                     % translate so that we are sure to
-                                     % be far enough away to start
-     % Create a ray bundle
-     rayBundleB1 = makeRayBundle(launchList,rayGd);
-     
-     % give it a useful name
-     rayBundleB1.name = 'Omega EP beam #1';
-     
+ if ~exist('rayBundleB1','var')     
+     angle1 = 180+(-23.3); % (degrees) is measured from "target norm"
+     %defining the launchList for laser beam #1
+     launchList1 = laserBeam_fwd(launchFreq,nrays,focalPt,angle1, ...
+         spotType,spotDiam,translate);  
+     rayBundleB1 = makeRayBundle(launchList1,rayGd); % Create a ray bundle
+     rayBundleB1.name = 'Omega EP beam #1';  % give it a useful name
  end
-
+  %Beam 2
   if ~exist('rayBundleB2','var')
-     
-     launchList.type = 'laserBeam';      % trigger for 'makeRayBundle'
-     launchList.mode = 'forward';        % Could be backward also (neg omega?).
-     launchList.nrays = 20;
-     launchList.frequency = cnst.omega0; % 1/sec
-     % center of spherical target
-     launchList.focalPt = [-400,0];      % microns
-     launchList.spot = struct('type','SG8','diameter',700); 
-     angle = 180+(+23.3); % (degres) is measured from "target norm"
-     launchList.centroid = [cosd(angle),sind(angle)]; % unit vector in
-                                                       % direction of
-                                                       % beam propagation
-                                                       % propagation
-     launchList.translate = 5.0e3;   % distance in um from focus to
-                                     % translate so that we are sure to
-                                     % be far enough away to start
-     % Create a ray bundle
-     rayBundleB2 = makeRayBundle(launchList,rayGd);
-
-     % give it the right name
-     rayBundleB1.name = 'Omega EP beam #2';     
+     angle2 = 180+(+23.3); % (degres) is measured from "target norm"
+     %defining the launchList for laser beam #1
+     launchList2 = laserBeam_fwd(launchFreq,nrays,focalPt,angle2, ...
+         spotType,spotDiam,translate);  
+     rayBundleB2 = makeRayBundle(launchList2,rayGd); % Create a ray bundle
+     rayBundleB1.name = 'Omega EP beam #2';  % give it the right name 
  end
 
  

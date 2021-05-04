@@ -1,11 +1,12 @@
  function rayBundle = makeRayBundle(launchList,rayGd,segLength,itmax)
-
- % This function takes a launch list as an argument and returns a
- % ray bundle that can be integrated
+ % MAKERAYBUNDLE Creates a rayBundle struct from a launchList and rayGd
+ %    This function takes a launch list as an argument and returns a
+ %    ray bundle that can be integrated
  %    rayBundle is a cell array of ray structure
  %    launchList is a structure that contain
  %    initial conditions and other necessary information
 
+ 
  global cnst
 
  % [delta z, delta r] corresponding to 10 um (or segLength)

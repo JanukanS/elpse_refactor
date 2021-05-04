@@ -1,7 +1,8 @@
 
  function rayGd = DracoMeshGrid(rayGd)
-    %convert triangular meshes into rectangular grids to use rectangular
+    %DRACOMESHGRID convert triangular meshes into rectangular grids to use rectangular
     %interpolation on
+    
     % (J.S. April 2020)
     uniqueZ = sort(unique(rayGd.DT.Points(:,1)));
     rayGd.zVal = uniqueZ;

@@ -1,5 +1,5 @@
  function [dydx,y,pp]=derivJFM(y,x,method)
- % Take derivative of an array
+ % DERIVJFM Take derivative of an array
  %   function [dydx,y,pp]=derivJFM(y,x,method)
  %
  % method is 'pp' | 'diff3' | 'diff5' which corresponds to

@@ -1,4 +1,5 @@
 function cnst = initCnst()
+    %INITCNST Returns a structure storing constants
     cnst = struct(...    %
      'c',[], ...      %   speed of light in vacuum [m/s]
      'e',[], ...      %   electron charge [C]

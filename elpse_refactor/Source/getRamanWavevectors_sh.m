@@ -2,7 +2,9 @@ function [srsBundle,epwBundle] = getRamanWavevectors_sh(traj,omega_ps, ...
                                                        rayGd, angle, ...
                                                        itmax, ...
                                                        landauC,inboundOnly)    
-% function [srsBundle,epwBundle] =
+% GETRAMANWAVEVECTORS_SH Returns output rayBundles for stimulated raman
+% scattered light and langmuir waves 
+% function [srsBundle,epwBundle] = 
 % getRamanWavectors_sh(traj,omega_ps,rayGd,angle,itmax,landauC,inboundOnly)
 %
 %         traj - the trajectory of a single EM ray
