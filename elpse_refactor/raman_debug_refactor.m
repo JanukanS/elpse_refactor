@@ -7,6 +7,8 @@
  path(path,'./Plotting')
  path(path,'./Source/rayBundles')
  path(path,'./Source')
+ path(path,'./Source/propagation')
+ path(path,'./Source/interpolation')
  %path(path,'./Steven_dev')
  
  global cnst
@@ -60,7 +62,8 @@
      rayGd = importDracoGrid(dracoFile,tslice,addVarFlag);
      disp("done updating hydro")
  end
-
+ 
+ rayGd = DracoMeshGrid(rayGd); %creates rectangular grids out of triangular meshes
  
  %
  % initialize and create a launch list and ray bundle for an EM
